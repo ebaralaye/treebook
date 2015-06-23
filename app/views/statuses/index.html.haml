@@ -1,0 +1,17 @@
+.page-header
+  %h1 All Statuses
+
+= link_to "Post a new status!", new_status_path, :class => 'btn btn-default'
+
+.statuses
+  - @statuses.each do |status|
+    .status
+      %strong= status.name
+      %p= status.content
+      .meta
+        = link_to time_ago_in_words(status.created_at) + "ago", status
+        %span.admin
+          |
+          = link_to "Edit", edit_status_path(status)
+          |
+          = link_to "Delete", status, method: :delete, data: {confirm: "Are you sure?"}

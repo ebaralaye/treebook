@@ -1,0 +1,19 @@
+!!! 5
+%html
+  %head
+    %title Treebook
+    =stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    =javascript_include_tag 'application', 'data-turbolinks-track' => true
+    =csrf_meta_tags
+  %body
+
+    %nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+          %a.navbar-brand{:href => '#'} Kollecto App
+
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li= link_to "All Statuses", statuses_path
+
+    .container= yield
